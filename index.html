@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blue: "hsl(246, 80%, 60%)",
+            "light-red-work": "hsl(15, 100%, 70%)",
+            "soft-blue-play": "hsl(195, 74%, 62%)",
+            "light-red-study": "hsl(348, 100%, 68%)",
+            "lime-green-exercise": "hsl(145, 58%, 55%)",
+            "violet-social": "hsl(264, 64%, 52%)",
+            "soft-orange-care": "hsl(43, 84%, 65%)",
+            "very-dark-blue": "hsl(226, 43%, 10%)",
+            "dark-blue": "hsl(235, 46%, 20%)",
+            "desaturated-blue": "#34397A",
+            "pale-blue": "hsl(236, 100%, 87%)",
+          },
+        },
+      },
+    };
+  </script>
+  <title>Document</title>
+  <style>
+    * {
+      color: white;
+      font-family: Rubik, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="flex justify-center items-center py-8 lg:h-screen bg-very-dark-blue">
+  <div
+    class="grid lg:grid-cols-[repeat(4,255px)] lg:grid-rows-[repeat(2,245px)] gap-8 min-h-fit grid-cols-[325px] grid-rows-[repeat(8,245px)]">
+    <!-- main card -->
+    <div class="row-start-1 row-end-3 rounded-2xl bg-dark-blue flex flex-col">
+      <div class="h-[355px] rounded-2xl bg-blue py-9 px-8">
+        <div class="rounded-full w-20 h-20 bg-white flex justify-center items-center">
+          <img src="./images/image-jeremy.png" alt="image jeremy" class="w-[4.75rem] rounded-full" />
+        </div>
+        <p class="font-extralight opacity-70 mt-10">Report for</p>
+        <p class="text-5xl font-thin">Jeremy Robson</p>
+      </div>
+
+      <div class="flex-1 flex flex-col justify-center">
+        <div class="font-thin text-lg mx-8 my-[0.2em] cursor-pointer transition-all hover:scale-105 w-min"
+          onclick="dailyOnClick()">
+          <p class="btnChangeTime">Daily</p>
+        </div>
+        <div class="font-thin text-lg mx-8 my-[0.2em]  cursor-pointer hover:brightness-150 hover:scale-105 w-min"
+          onclick="weeklyOnClick()">
+          <p class="btnChangeTime">Weekly</p>
+        </div>
+        <div class="font-thin text-lg mx-8 my-[0.2em] cursor-pointer hover:brightness-150 hover:scale-105 w-min"
+          onclick="monthlyOnClick()">
+          <p class="btnChangeTime">Monthly</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- work -->
+    <div class="rounded-2xl pt-11 bg-light-red-work relative overflow-hidden">
+      <img src="./images/icon-work.svg" alt="icon work" class="absolute -top-2 right-3" />
+      <div class="rounded-2xl h-full w-full bg-dark-blue hover:bg-desaturated-blue p-7 z-20 absolute">
+        <div class="flex justify-between">
+          <p class="text-lg">Work</p>
+          <img class="h-fit self-center" src="./images/icon-ellipsis.svg" alt="elipsis icon" />
+        </div>
+
+        <p class="text-6xl font-thin mt-6 component-hours"></p>
+        <p class="mt-2 font-extralight opacity-70 component-time"></p>
+      </div>
+    </div>
+
+    <!-- play -->
+    <div class="rounded-2xl pt-11 bg-soft-blue-play relative overflow-hidden">
+      <img src="./images/icon-play.svg" alt="icon work" class="absolute -top-2 right-3" />
+      <div class="rounded-2xl h-full w-full bg-dark-blue hover:bg-desaturated-blue p-7 z-20 absolute">
+        <div class="flex justify-between">
+          <p class="text-lg">Play</p>
+          <img class="h-fit self-center" src="./images/icon-ellipsis.svg" alt="elipsis icon" />
+        </div>
+
+        <p class="text-6xl font-thin mt-6 component-hours"></p>
+
+        <p class="mt-2 font-extralight opacity-70 component-time"></p>
+      </div>
+    </div>
+
+    <!-- study -->
+    <div class="rounded-2xl pt-11 bg-light-red-study relative overflow-hidden">
+      <img src="./images/icon-study.svg" alt="icon work" class="absolute -top-2 right-3" />
+      <div class="rounded-2xl h-full w-full bg-dark-blue hover:bg-desaturated-blue p-7 z-20 absolute">
+        <div class="flex justify-between">
+          <p class="text-lg">Study</p>
+          <img class="h-fit self-center" src="./images/icon-ellipsis.svg" alt="elipsis icon" />
+        </div>
+
+        <p class="text-6xl font-thin mt-6 component-hours"></p>
+
+        <p class="mt-2 font-extralight opacity-70 component-time"></p>
+      </div>
+    </div>
+
+    <!-- exercise -->
+    <div class="rounded-2xl pt-11 bg-lime-green-exercise relative overflow-hidden">
+      <img src="./images/icon-exercise.svg" alt="icon work" class="absolute top-0 right-3" />
+      <div class="rounded-2xl h-full w-full bg-dark-blue hover:bg-desaturated-blue p-7 z-20 absolute">
+        <div class="flex justify-between">
+          <p class="text-lg">Exercise</p>
+          <img class="h-fit self-center" src="./images/icon-ellipsis.svg" alt="elipsis icon" />
+        </div>
+
+        <p class="text-6xl font-thin mt-6 component-hours"></p>
+
+        <p class="mt-2 font-extralight opacity-70 component-time"></p>
+      </div>
+    </div>
+
+    <!-- social -->
+    <div class="rounded-2xl pt-11 bg-violet-social relative overflow-hidden">
+      <img src="./images/icon-social.svg" alt="icon work" class="absolute -top-2 right-3" />
+      <div class="rounded-2xl h-full w-full bg-dark-blue hover:bg-desaturated-blue p-7 z-20 absolute">
+        <div class="flex justify-between">
+          <p class="text-lg">Social</p>
+          <img class="h-fit self-center" src="./images/icon-ellipsis.svg" alt="elipsis icon" />
+        </div>
+
+        <p class="text-6xl font-thin mt-6 component-hours"></p>
+
+        <p class="mt-2 font-extralight opacity-70 component-time"></p>
+      </div>
+    </div>
+
+    <!-- health care -->
+    <div class="rounded-2xl pt-11 bg-soft-orange-care relative overflow-hidden">
+      <img src="./images/icon-self-care.svg" alt="icon work" class="absolute -top-2 right-3" />
+      <div class="rounded-2xl h-full w-full bg-dark-blue hover:bg-desaturated-blue p-7 z-20 absolute">
+        <div class="flex justify-between">
+          <p class="text-lg">Self Care</p>
+          <img class="h-fit self-center" src="./images/icon-ellipsis.svg" alt="elipsis icon" />
+        </div>
+
+        <p class="text-6xl font-thin mt-6 component-hours"></p>
+        <p class="mt-2 font-extralight opacity-70 component-time"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
